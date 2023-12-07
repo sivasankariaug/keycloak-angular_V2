@@ -19,6 +19,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserAvatarComponent } from './components/user-avatar/user-avatar.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
@@ -37,7 +38,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
 @NgModule({
   declarations: [AppComponent, ProductsComponent, HeaderComponent, UserScreenComponent,
-    AdminScreenComponent, KeycloakLoginComponent, AddUserComponent, UsersComponent, ProductlistComponent, UserAvatarComponent],
+    AdminScreenComponent, KeycloakLoginComponent, AddUserComponent, UsersComponent, ProductlistComponent, UserAvatarComponent, AddProductComponent],
   imports: [BrowserModule, AppRoutingModule, KeycloakAngularModule, ReactiveFormsModule, HttpClientModule, NgxPaginationModule, ToastrModule.forRoot(), BrowserAnimationsModule],
   providers: [
     {

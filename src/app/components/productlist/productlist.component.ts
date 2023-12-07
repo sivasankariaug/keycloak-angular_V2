@@ -8,28 +8,37 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductlistComponent {
 
-  POSTS : any;
+  POSTS: any;
   token: string;
-  page : number=1;
-  count : number=0;
-  tableSize : number=5;
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 5;
+  isPopupVisible = false;
 
-  constructor(private productService : ProductService){}
+
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.productsList();
   }
-  
-  productsList(): void{
-    this.productService.getAllProductData(this.token).subscribe((Response : any)=>{
-      this.POSTS=Response;
+
+  productsList(): void {
+    this.productService.getAllProductData(this.token).subscribe((Response: any) => {
+      this.POSTS = Response;
       console.log(this.POSTS);
     })
   }
 
-  onTableDataChange(event : any ){
-    this.page=event;
+  onTableDataChange(event: any) {
+    this.page = event;
     this.productsList();
+  }
+  openPopup() {
+    this.isPopupVisible = true;
+  }
+
+  closePopup() {
+    this.isPopupVisible = false;
   }
 }

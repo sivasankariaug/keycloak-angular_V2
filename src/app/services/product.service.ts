@@ -18,6 +18,13 @@ export class ProductService {
 
     return this.http.get<any>(`${this.apiUrl}/api/product/v1/view`, { headers });
   }
+  addProduct(accessToken: string, productDetails): Observable<any> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${accessToken}`
+    });
+
+    return this.http.post<any>(`${this.apiUrl}/api/product/v1/create`, productDetails, { headers });
+  }
 
 
 

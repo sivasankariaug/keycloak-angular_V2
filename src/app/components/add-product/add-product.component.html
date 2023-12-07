@@ -1,0 +1,46 @@
+<!-- popup.component.html -->
+<div class="popup">
+    <!-- Your form content goes here -->
+    <!-- add-product.component.html -->
+    <div class="modern-form">
+        <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" formControlName="productName" />
+                <!-- <div *ngIf="addProductForm.get('productName').hasError('required')" class="error-message">
+                    Product Name is required.
+                </div> -->
+            </div>
+
+            <div class="form-group">
+                <label for="material">Material:</label>
+                <input type="text" id="material" formControlName="material" />
+                <!-- <div *ngIf="addProductForm.get('material').hasError('required')" class="error-message">
+                    Material is required.
+                </div> -->
+            </div>
+
+            <div class="form-group">
+                <label for="weight">Weight:</label>
+                <input type="text" id="weight" formControlName="weight" />
+                <!-- <div *ngIf="addProductForm.get('weight').hasError('required')" class="error-message">
+                    Weight is required.
+                </div> -->
+            </div>
+
+            <div class="form-group">
+                <label for="noOfComponents">No. of Components:</label>
+                <input type="text" id="noOfComponents" formControlName="noOfComponents" />
+                <!-- <div *ngIf="addProductForm.get('noOfComponents').hasError('required')" class="error-message">
+                    No. of Components is required.
+                </div> -->
+            </div>
+
+            <button type="submit" [disabled]="addProductForm.invalid">Submit</button>
+        </form>
+    </div>
+
+
+    <!-- Close icon -->
+    <i class="fas fa-times close-icon" (click)="closePopup.emit()"></i>
+</div>
