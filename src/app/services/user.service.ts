@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8081'; // Replace with your API endpoint
+  private apiUrl = 'http://192.168.1.85:8081'; // Replace with your API endpoint
 
   constructor(private http: HttpClient) { }
 

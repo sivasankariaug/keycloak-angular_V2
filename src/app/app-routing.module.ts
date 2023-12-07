@@ -19,11 +19,11 @@ const routes: Routes = [
     redirectTo: 'products',
     pathMatch: 'full',
   },
+  { path: 'user', component: UserScreenComponent },
   { path: 'admin', component: AdminScreenComponent },
   { path: 'adduser', component: AddUserComponent },
   { path: 'productslist', component: ProductlistComponent },
   { path: 'userslist', component: UsersComponent },
-  { path: 'manageuser', component: UsersComponent }
   // Other routes...
 ];
 

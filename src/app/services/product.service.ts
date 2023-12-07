@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'http://localhost:8081'; // Replace with your API endpoint
+  private apiUrl = 'http://192.168.1.85:8081'; // Replace with your API endpoint
 
 
   constructor(private http: HttpClient) { }
@@ -18,7 +18,7 @@ export class ProductService {
 
     return this.http.get<any>(`${this.apiUrl}/api/product/v1/view`, { headers });
   }
-  
+
 
 
 }
