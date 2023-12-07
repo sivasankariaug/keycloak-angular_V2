@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 import { Location } from '@angular/common';
-
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
