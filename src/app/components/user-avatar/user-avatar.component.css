@@ -1,0 +1,45 @@
+.user-avatar {
+    cursor: pointer;
+    position: relative;
+}
+
+.user-avatar i {
+    font-size: 24px;
+}
+
+.user-popup {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.user-popup p {
+    margin-bottom: 10px;
+}
+
+.user-popup button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #0056b3;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-bottom: 2px;
+}
+
+.user-popup button:hover {
+    background-color: #0056b3;
+}
+
+.user-avatar:hover .user-popup {
+    display: block;
+}

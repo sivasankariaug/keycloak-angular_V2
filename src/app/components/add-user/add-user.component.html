@@ -1,0 +1,24 @@
+<div class="form-container">
+    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" formControlName="firstname" />
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" formControlName="lastname" />
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" formControlName="username" />
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" formControlName="email" />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" />
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" formControlName="confirmPassword" />
+
+        <button type="submit" [disabled]="addUserForm.invalid">Submit</button>&nbsp;
+        <button type="reset" class="btn btn-outline-danger" style="background-color: red;">Clear</button>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <th scope="col">ID</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Firstname</th>
+            <th scope="col">Lastname</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of POSTS | paginate:{
+                itemsPerPage : tableSize,
+                currentPage : page,
+                totalItems : count };" >
+                <td>{{post.id}}</td>
+                <td>{{post.username}}</td>
+                <td>{{post.email}}</td>
+                <td>{{post.firstName}}</td>
+                <td>{{post.lastName}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <pagination-controls 
+       previousLabel="prev"
+       nextLabel="next"
+       (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+</div>

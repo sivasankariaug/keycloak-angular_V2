@@ -1,0 +1,11 @@
+<div class="user-avatar" (click)="togglePopup()">
+    <!-- Your avatar icon here -->
+    <i class="fas fa-user-circle"></i>
+    <p style="text-align: center;"> {{ userName}}</p>
+    <!-- Popup -->
+    <div class="user-popup" *ngIf="showPopup">
+        <p style="text-align: center;"> {{ userName }}</p>
+        <button (click)="goToManageUser()">Manage User</button>
+        <button (click)="logout()">Logout</button>
+    </div>
+</div>
