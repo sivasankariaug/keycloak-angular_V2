@@ -25,8 +25,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
     keycloak.init({
       config: {
         url: environment.keycloakUrl,
-        realm: 'SpringbootApp',
-        clientId: 'login-app',
+        realm: environment.realm,
+        clientId: environment.clientId,
       },
       initOptions: {
         onLoad: 'login-required',
@@ -37,8 +37,8 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
 @NgModule({
   declarations: [AppComponent, ProductsComponent, HeaderComponent, UserScreenComponent,
-    AdminScreenComponent, KeycloakLoginComponent, AddUserComponent, UsersComponent,ProductlistComponent,UserAvatarComponent],
-  imports: [BrowserModule, AppRoutingModule, KeycloakAngularModule, ReactiveFormsModule, HttpClientModule,NgxPaginationModule, ToastrModule.forRoot(),BrowserAnimationsModule],
+    AdminScreenComponent, KeycloakLoginComponent, AddUserComponent, UsersComponent, ProductlistComponent, UserAvatarComponent],
+  imports: [BrowserModule, AppRoutingModule, KeycloakAngularModule, ReactiveFormsModule, HttpClientModule, NgxPaginationModule, ToastrModule.forRoot(), BrowserAnimationsModule],
   providers: [
     {
       provide: APP_INITIALIZER,
