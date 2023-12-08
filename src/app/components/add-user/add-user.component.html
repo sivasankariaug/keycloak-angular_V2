@@ -1,4 +1,6 @@
 <div class="form-container">
+    <div style="text-align: center;"><h3>Add User</h3></div>
+
     <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
         <label for="firstname">First Name:</label>
         <input type="text" id="firstname" formControlName="firstname" />
@@ -18,7 +20,7 @@
         <label for="confirmPassword">Confirm Password:</label>
         <input type="password" id="confirmPassword" formControlName="confirmPassword" />
 
-        <button type="submit" [disabled]="addUserForm.invalid">Submit</button>&nbsp;
+        <button type="submit" [disabled]="addUserForm.invalid" style="margin-left: 100px;">Submit</button>&nbsp;
         <button type="reset" class="btn btn-outline-danger" style="background-color: red;">Clear</button>
     </form>
 </div>

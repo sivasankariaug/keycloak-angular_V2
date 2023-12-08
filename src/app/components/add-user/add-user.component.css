@@ -15,9 +15,10 @@ label {
 
 input {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
+    padding: 5px;
+    margin-bottom: 10px;
     box-sizing: border-box;
+    height: 35px;
 }
 
 button {

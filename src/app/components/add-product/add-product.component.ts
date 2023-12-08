@@ -21,7 +21,7 @@ export class AddProductComponent {
       productName: ['', [Validators.required]],
       material: ['', [Validators.required]],
       weight: ['', [Validators.required]],
-      noOfComponents: ['', [Validators.required]],
+      numberOfComponents: ['', [Validators.required]],
     });
     // console.log();
 
