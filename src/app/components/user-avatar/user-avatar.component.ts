@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { KeycloakService } from 'keycloak-angular';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-avatar',
@@ -17,11 +18,15 @@ export class UserAvatarComponent implements OnInit {
     private router: Router,
     private auth: AuthServiceService,
     private keycloakService: KeycloakService,
-    private location: Location
+    private location: Location,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
-    this.getUserName();
+    this.userService.username$.subscribe((username) => {
+      this.userName = username || 'null';
+      console.log('this.userName', this.userName);
+    });
   }
 
   togglePopup(): void {
@@ -41,10 +46,10 @@ export class UserAvatarComponent implements OnInit {
     });
   }
 
-  getUserName(): void {
-    this.userName = localStorage.getItem('preferredUsername') || 'null';
-    console.log('this.userName', this.userName);
-  }
+  // getUserName(): void {
+  //   this.userName = localStorage.getItem('preferred_username') || 'null';
+  //   console.log('this.userName', this.userName);
+  // }
 
   goToManageUser(): void {
     // Implement the logic for navigating to manage user page

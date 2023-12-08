@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,16 @@ export class UserService {
   private apiUrl = 'http://192.168.1.85:8081'; // Replace with your API endpoint
 
   constructor(private http: HttpClient) { }
+
+  private usernameSubject = new Subject<string>();
+  username$ = this.usernameSubject.asObservable();
+
+  setUserName(username: string): void {
+    localStorage.setItem('preferred_username', username);
+    this.usernameSubject.next(username);
+    console.log('setted:', localStorage.getItem('preferred_username'));
+
+  }
 
   addUser(userDetails: any, accessToken: string): Observable<any> {
     const headers = new HttpHeaders({

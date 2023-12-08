@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
 import { Router } from '@angular/router';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-products',
@@ -9,7 +10,7 @@ import { AuthServiceService } from 'src/app/services/auth-service.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  constructor(private keycloakService: KeycloakService, private router: Router, private auth: AuthServiceService) { }
+  constructor(private keycloakService: KeycloakService, private router: Router, private auth: AuthServiceService, private userService: UserService) { }
   public role = '';
 
   ngOnInit(): void {
@@ -24,9 +25,11 @@ export class ProductsComponent implements OnInit {
 
       const token = this.keycloakService.getKeycloakInstance().tokenParsed;
       const unparsedToken = this.keycloakService.getKeycloakInstance().token;
-      console.log('User Access Token: ', token);
+      console.log('User : ', token['preferred_username']);
       console.log('User Access Token: ', unparsedToken);
       localStorage.setItem('token', unparsedToken);
+      const preferredUsername = token['preferred_username'];
+      this.userService.setUserName(preferredUsername);
       if (unparsedToken) {
         this.auth.setToken(unparsedToken);
       } else {
