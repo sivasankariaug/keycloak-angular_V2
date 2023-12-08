@@ -1,6 +1,6 @@
 export const environment = {
     production: false, // Set to true for production
-    keycloakUrl: 'http://192.168.1.85:8080/auth', // Update with your Keycloak URL
+    keycloakUrl: 'http://localhost:8080/auth', // Update with your Keycloak URL
     realm: 'SpringbootApp',
     clientId: 'login-app',
 };
