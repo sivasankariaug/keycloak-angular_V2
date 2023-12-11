@@ -15,7 +15,7 @@ export class AddProductComponent {
   @Output() closePopup: EventEmitter<void> = new EventEmitter<void>();
   addProductForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private productService: ProductService, private toastr: ToastrService, private router : Router) { }
+  constructor(private fb: FormBuilder, private productService: ProductService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.addProductForm = this.fb.group({
@@ -39,7 +39,8 @@ export class AddProductComponent {
           this.toastr.success(res.statusMessage, "");
           // location.reload();
           this.addProductForm.reset();
-          this.router.navigate(['/productslist']);
+          this.productService.updateProductList();
+          this.closePopup.emit();
         } else if (res.statusCode == 409
           && res.statusMessage == 'failed') {
           console.log();

@@ -14,7 +14,7 @@ export class ProductlistComponent {
   count: number = 0;
   tableSize: number = 5;
   isPopupVisible = false;
-  searchTerm :any = '';
+  searchTerm: any = '';
 
 
   constructor(private productService: ProductService) { }
@@ -22,6 +22,9 @@ export class ProductlistComponent {
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.productsList();
+    this.productService.productListUpdate$.subscribe(() => {
+      this.productsList();
+    });
   }
 
   productsList(): void {

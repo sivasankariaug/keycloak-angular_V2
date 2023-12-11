@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,12 @@ import { Observable } from 'rxjs';
 export class ProductService {
   private apiUrl = 'http://192.168.1.85:8081'; // Replace with your API endpoint
 
+  private productListUpdateSource = new Subject<void>();
+  productListUpdate$ = this.productListUpdateSource.asObservable();
+
+  updateProductList(): void {
+    this.productListUpdateSource.next();
+  }
 
   constructor(private http: HttpClient) { }
 
