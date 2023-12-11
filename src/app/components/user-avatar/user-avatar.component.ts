@@ -11,7 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-avatar.component.css']
 })
 export class UserAvatarComponent implements OnInit {
-  public userName: string = 'null';
+  public userName: string = '';
   showPopup: boolean = false;
 
   constructor(
@@ -46,10 +46,6 @@ export class UserAvatarComponent implements OnInit {
     });
   }
 
-  // getUserName(): void {
-  //   this.userName = localStorage.getItem('preferred_username') || 'null';
-  //   console.log('this.userName', this.userName);
-  // }
 
   goToManageUser(): void {
     // Implement the logic for navigating to manage user page
