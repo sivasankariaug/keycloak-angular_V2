@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthServiceService } from 'src/app/services/auth-service.service';
 import { UserService } from 'src/app/services/user.service';
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class AddUserComponent implements OnInit {
   public addUserForm: FormGroup;
   token: string;
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private toastr: ToastrService) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -48,15 +49,16 @@ export class AddUserComponent implements OnInit {
       try {
         this.userService.addUser(payload, this.token).subscribe(
           response => {
-            if (response.statusCode == 201 
+            if (response.statusCode == 201
               && response.statusMessage == 'User created successfully!') {
-                this.toastr.success(response.statusMessage,"");
-                // location.reload();
-                this.addUserForm.reset();
-            }else if (response.statusCode == 409 
+              this.toastr.success(response.statusMessage, "");
+              // location.reload();
+              this.addUserForm.reset();
+              this.router.navigate(['/userslist'], { replaceUrl: true });
+            } else if (response.statusCode == 409
               && response.statusMessage == 'User exists with same username') {
-                console.log();
-                this.toastr.success(response.statusMessage,"");
+              console.log();
+              this.toastr.success(response.statusMessage, "");
             }
           },
           error => {
