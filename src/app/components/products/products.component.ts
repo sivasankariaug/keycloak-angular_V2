@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
       }
       // Example: Redirect based on a specific role
       if (token!.realm_access?.roles?.includes('realm_admin')) {
-        this.router.navigate(['admin'], { replaceUrl: true });
+        this.router.navigate([''], { replaceUrl: true });
         console.log('Redirecting to admin screen');
         this.role = 'realm_admin';
         this.auth.setRole('realm_admin');
@@ -45,7 +45,7 @@ export class ProductsComponent implements OnInit {
         token!.realm_access?.roles?.includes('realm_user')
       ) {
         this.auth.setRole('realm_user');
-        this.router.navigate(['user'], { replaceUrl: true });
+        this.router.navigate([''], { replaceUrl: true });
         console.log('Redirecting to user screen');
         this.role = 'realm_user';
       } else {

@@ -22,6 +22,7 @@ import { UserAvatarComponent } from './components/user-avatar/user-avatar.compon
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { SearchPipe } from './pipes/search.pipe';
+import { HomeComponent } from './components/home/home.component';
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
@@ -39,7 +40,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
 @NgModule({
   declarations: [AppComponent, ProductsComponent, HeaderComponent, UserScreenComponent,
-    AdminScreenComponent, KeycloakLoginComponent, AddUserComponent, UsersComponent, ProductlistComponent, UserAvatarComponent, AddProductComponent],
+    AdminScreenComponent, KeycloakLoginComponent, AddUserComponent, UsersComponent, ProductlistComponent, UserAvatarComponent, AddProductComponent, HomeComponent],
   imports: [BrowserModule, AppRoutingModule, KeycloakAngularModule, ReactiveFormsModule, HttpClientModule, NgxPaginationModule, ToastrModule.forRoot(), BrowserAnimationsModule, FormsModule, SearchPipe],
   providers: [
     {

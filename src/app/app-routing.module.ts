@@ -7,6 +7,7 @@ import { AuthGuard } from './auth.guard';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { UsersComponent } from './components/users/users.component';
 import { ProductlistComponent } from './components/productlist/productlist.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'products',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   { path: 'user', component: UserScreenComponent },
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'adduser', component: AddUserComponent },
   { path: 'productslist', component: ProductlistComponent },
   { path: 'userslist', component: UsersComponent },
+  { path: '', component: HomeComponent },
+  // Other routes...
   // Other routes...
 ];
 
