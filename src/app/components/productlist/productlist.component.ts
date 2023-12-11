@@ -14,6 +14,7 @@ export class ProductlistComponent {
   count: number = 0;
   tableSize: number = 5;
   isPopupVisible = false;
+  searchTerm :any = '';
 
 
   constructor(private productService: ProductService) { }

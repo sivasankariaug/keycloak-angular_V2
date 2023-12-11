@@ -11,6 +11,7 @@ export class UsersComponent {
   page: number = 1;
   count: number = 0;
   tableSize: number = 5;
+  searchTerm :any ='';
 
   constructor(private userService: UserService) { }
 
