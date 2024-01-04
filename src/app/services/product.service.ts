@@ -1,12 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { baseUrl } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private apiUrl = 'http://192.168.1.85:8081'; // Replace with your API endpoint
+  public a = baseUrl.ip;
+  private apiUrl = 'http://' + baseUrl.ip + ':' + baseUrl.port; // Replace with your API endpoint
 
   private productListUpdateSource = new Subject<void>();
   productListUpdate$ = this.productListUpdateSource.asObservable();

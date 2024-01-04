@@ -39,10 +39,10 @@ export class UserAvatarComponent implements OnInit {
       // Clear Keycloak session information
       this.auth.removeRole();
       localStorage.clear();
-      this.keycloakService.logout();
       this.keycloakService.clearToken();
-      this.location.go('/products'); // Navigate to the root
-      location.reload(); // Reload the page after clearing Keycloak session
+      this.keycloakService.logout();
+      // this.location.go('/products'); // Navigate to the root
+      // location.reload(); // Reload the page after clearing Keycloak session
     });
   }
 
