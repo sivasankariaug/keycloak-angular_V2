@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
+import { baseUrl } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8081'; // Replace with your API endpoint
+  private apiUrl = 'http://' + baseUrl.ip + ':' + baseUrl.port; // Replace with your API endpoint
 
   constructor(private http: HttpClient) { }
 

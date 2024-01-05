@@ -6,7 +6,7 @@ export const environment = {
 };
 
 export const baseUrl = {
-    ip: 'localhost',
+    ip: '35.154.250.39',
     port: '8081'
 }
 // export const environment = {
