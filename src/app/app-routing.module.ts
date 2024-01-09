@@ -10,11 +10,11 @@ import { ProductlistComponent } from './components/productlist/productlist.compo
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  {
-    path: 'products',
-    component: ProductsComponent,
-    canActivate: [AuthGuard],
-  },
+  // {
+  //   path: 'products',
+  //   component: ProductsComponent,
+  //   canActivate: [AuthGuard],
+  // },
   {
     path: '',
     redirectTo: 'home',

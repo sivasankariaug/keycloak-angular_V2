@@ -35,11 +35,15 @@ export class UserAvatarComponent implements OnInit {
 
   logout(): void {
     console.log('logout clicked!!!');
-    this.auth.removeRole();
-    localStorage.clear();
-    this.keycloakService.clearToken();
-    this.keycloakService.logout().then(() => {
-      this.router.navigate(['/products'], { replaceUrl: true });
+    this.router.navigate([''], { replaceUrl: true }).then(() => {
+
+      this.keycloakService.logout().then(() => {
+        this.auth.removeRole();
+        localStorage.clear();
+        this.keycloakService.clearToken();
+        // this.location.go('');
+        // location.reload();
+      });
     });
     // this.router.navigate(['/products'], { replaceUrl: true }).then(() => {
     //   // Clear Keycloak session information
